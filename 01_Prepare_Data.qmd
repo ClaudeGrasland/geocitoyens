@@ -143,6 +143,8 @@ saveRDS(mapdoncirc1, "maps/mapdoniris_part1.RDS")
 mapdoncirc2 <- mapdoncirc [23001:49397,]
 saveRDS(mapdoncirc2, "maps/mapdoniris_part2.RDS")
 
+don<-mapdoncirc %>% st_drop_geometry()
+saveRDS(don,"don/doniris.RDS")
 ```
 
 
