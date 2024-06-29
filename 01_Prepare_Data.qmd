@@ -52,7 +52,6 @@ map <- map %>% mutate(com_code = INSEE_COM,
                        select(com_code, com_name, iris_code, iris_name, iris_type)%>%
                     st_as_sf() %>% st_make_valid()
                
-saveRDS(map,"don/iris2022.RDS")
 ```
 
 On vérifie qu'il s'agit bien du même fonds de carte (généralisation)
@@ -133,11 +132,35 @@ mapdoncirc<-mapdoncirc[, c(38,40,39, 1:36)]
 
 ## Sauvegarde du fichier principal
 
-On a désormais toute les informations dans un fichier unique ...
+On a désormais toute les informations dans un fichier unique ... On sauvegarde le fichier dans le dossier .tmp et on le coupe en deux pour pouvoir le stocker sur github sans dépasser la limite de 50 Mo
 
 ```{r}
-saveRDS(mapdoncirc,"don/mapdoncirc.RDS")
+saveRDS(mapdoncirc,"tmp/mapdoncirc.RDS")
+
+mapdoncirc <- mapdoncirc %>% arrange(com_code)
+mapdoncirc1 <- mapdoncirc [1:23000,]
+saveRDS(mapdoncirc1, "maps/mapdoniris_part1.RDS")
+mapdoncirc2 <- mapdoncirc [23001:49397,]
+saveRDS(mapdoncirc2, "maps/mapdoniris_part2.RDS")
+
 ```
+
+
+## Création du fichier des circonscriptions
+
+```{r}
+mapcirc<-mapdoncirc %>% group_by(id_circo, libelle) %>%
+                       summarise()
+
+# test
+test<-mapcirc %>% filter(substr(libelle,1,6)=="Val-de")
+plot(test$geometry)
+
+# sauvegarde
+saveRDS(mapcirc, "maps/mapcirc.RDS")
+```
+
+
 
 
 ## Création du fichier des communes
@@ -154,17 +177,27 @@ plot(test$geometry)
 saveRDS(mapcom, "maps/mapcom.RDS")
 ```
 
-# Création du fichier des départements
+## Création du fichier des départements
+
 ```{r}
-table(nchar(mapcom$com_code))
-mapdep<-mapcom %>% mutate(dep)
-                   group_by(dep) %>%
+mapcom$dep<-substr(mapcom$com_code,1,2)
+mapcom$dep[mapcom$dep=="97"]<-substr(mapcom$com_code[mapcom$dep=="97"],1,3)
+table(mapcom$dep)
+
+mapdep<-mapcom %>% group_by(dep) %>%
                        summarise()
 
 # test
-plot(mapdep$geometry)
+testdep <- mapdep %>% filter(substr(dep,1,2)!="97")
+plot(testdep$geometry)
 
 # sauvegarde
-saveRDS(mapcom, "maps/mapcom.RDS")
+saveRDS(mapdep, "maps/mapdep.RDS")
 ```
+
+
+## Conclusion
+
+Le fichier unique`mapdoncirc.RDS` (95.3Mo) contient toute l'information utile pour faire des cartes électorales par IRIS.Il peut s'agréger approximativement en communes (fichier `mapcom.RDS`), en circonscription (fichier `mapcirc.RDS`) ou en départements (`mapdep.RDS`).
+
 
