@@ -1,0 +1,170 @@
+---
+title: "Préparation des données"
+format: html
+---
+
+
+```{r}
+library(sf)
+library(dplyr)
+library(geojsonsf)
+```
+
+
+## Données élections européennes 2024 par IRIS
+
+Reconstitution effectuée par l'atelier des communs. Ressource disponible sur data.gouv.fr à [cette adresse](https://www.data.gouv.fr/fr/datasets/croisement-des-donnees-demographique-insee-2020-avec-les-resultats-des-elections-europeennes-2024/#/resources/5eb2f5cc-6777-468c-b781-7e2bdf4152a1)
+
+APrès téléchargement du fichier au forma geojson (340 Mo) on convertit au format .RDS de R pour stockage sur github (51 Mo). 
+
+```{r}
+
+don <-readRDS("tmp/europ2024_iris.RDS") 
+names(don)
+
+```
+
+On remarque que l'appartenance d'un IRIS à une circonscription ne figure pas, ce qui est problématique... Quant au code IRIS, il faut vérifier leur millesime ...
+
+
+## Fonds de carte France entière par IRIS
+
+Après essais et erreurs on retient le fonds de carte généralisée fourni par [geoservices de l'IGN](https://geoservices.ign.fr/telechargement-api/CONTOURS-IRIS) qui correspond à un millesime 2022. Il faut aller chercher aussi les DROM et recoder unpeules variables
+
+
+```{r}
+map0<-st_read("tmp/1_DONNEES_LIVRAISON_2022-06-00180/CONTOURS-IRIS_2-1_SHP_LAMB93_FXX-2022/CONTOURS-IRIS.shp") %>% st_transform(4326)
+map1<-st_read("tmp/1_DONNEES_LIVRAISON_2022-06-00180/CONTOURS-IRIS_2-1_SHP_RGAF09UTM20_GLP-2022/CONTOURS-IRIS.shp") %>% st_transform(4326)
+map2<-st_read("tmp/1_DONNEES_LIVRAISON_2022-06-00180/CONTOURS-IRIS_2-1_SHP_RGAF09UTM20_MTQ-2022/CONTOURS-IRIS.shp") %>% st_transform(4326)
+map3<-st_read("tmp/1_DONNEES_LIVRAISON_2022-06-00180/CONTOURS-IRIS_2-1_SHP_UTM22RGFG95_GUF-2022/CONTOURS-IRIS.shp") %>% st_transform(4326)
+map4<-st_read("tmp/1_DONNEES_LIVRAISON_2022-06-00180/CONTOURS-IRIS_2-1_SHP_RGR92UTM40S_REU-2022/CONTOURS-IRIS.shp") %>% st_transform(4326)
+map5<-st_read("tmp/1_DONNEES_LIVRAISON_2022-06-00180/CONTOURS-IRIS_2-1_SHP_RGM04UTM38S_MYT-2022/CONTOURS-IRIS.shp")%>% st_transform(4326)
+
+
+map<-rbind(map0,map1,map2,map3,map4,map5) %>% st_as_sf()
+
+
+map <- map %>% mutate(com_code = INSEE_COM,
+                       com_name = NOM_COM,
+                       iris_code = CODE_IRIS,
+                       iris_name = NOM_IRIS,
+                       iris_type = TYP_IRIS) %>%
+                       select(com_code, com_name, iris_code, iris_name, iris_type)%>%
+                    st_as_sf() %>% st_make_valid()
+               
+saveRDS(map,"don/iris2022.RDS")
+```
+
+On vérifie qu'il s'agit bien du même fonds de carte (généralisation)
+
+```{r}
+x1<-map %>% filter(com_code=="94071") %>% st_transform(2154)
+x2<- don %>% filter(substr(index,1,5)=="94071") %>% st_transform(2154)
+
+
+plot(x2$geometry,col="lightyellow")
+plot(x1$geometry,col=NA, border="red",add=T)
+```
+
+
+## Jointure
+
+On effectue la jointure entre le fichier des IRIS et le fichier électoral et tout se passe bien (jointure parfaite !)
+
+```{r}
+don<-st_drop_geometry(don) %>% mutate(iris_code=index) %>% select(-index)
+mapdon<-left_join(map,don)
+table(is.na(mapdon$inscrits))
+addmargins(table(mapdon$iris_type,is.na(mapdon$inscrits)==F))
+```
+
+On trouve bien 45650 Iris où la jointure a été possible comme dans le fichier fourni par les ateliers des communs. Il en reste 3747 pour lesquels la jointure n'a pas eu lieu car les données électorales étaient absente. Il s'agit en partie au moins d'iris d'habitat ...
+
+## Carte des circonscriptions
+
+Faute de disposer d'une table de correspondance, on va utiliser un contour des circonscriptions pour effectuer une opération d'intersection à l'aide de sf... On commence par un test de superposition.
+
+```{r}
+circ<-st_read("tmp/circonscriptions_legislatives_030522.shp")
+
+testcirc<-circ %>% filter(dep=="94")
+testiris<-mapdon %>% filter(substr(com_code,1,2)=="94")
+
+par(mar=c(0,0,0,0))
+plot(testiris$geometry, col="lightyellow")
+plot(testcirc$geometry, col=NA, border="red",add=T)
+```
+
+La superposition est imaprfaite mais on peut espérer que laplupart des centres d'IRIS seront capturés sans trop d'erreur même si évidemment il y a des cas d'IRIS appartenant à deux circonscriptions ...
+
+
+```{r}
+testirisctr<-testiris %>% st_centroid() %>%st_make_valid(testiris)
+testcirc<-st_make_valid(testcirc)
+x<-st_intersects(testirisctr, testcirc,sparse = T)
+testiris$circ<-as.character(x)
+
+plot(testiris["circ"])
+```
+
+Si l'on excepte un IRIS de Saint-Mandé non inclu, l'opération est réussie. On passe donc sur la France entière ...
+
+## Affectation des IRIS à une circonscription (approximativement)
+
+```{r}
+irisctr<- map %>% st_centroid() %>% st_make_valid()
+circ <- circ %>% st_make_valid()
+x<-st_intersects(irisctr, circ,sparse = T) %>% st_drop_geometry()
+x<-as.numeric(x)
+
+mapdon$circ_num<-as.numeric(x)
+
+circ$circ_num <- 1:dim(circ)[1]
+circtab <- st_drop_geometry(circ)
+
+mapdoncirc <-left_join(mapdon,circtab)
+
+# réorgnisation
+
+mapdoncirc<-mapdoncirc[, c(38,40,39, 1:36)] 
+
+
+```
+
+## Sauvegarde du fichier principal
+
+On a désormais toute les informations dans un fichier unique ...
+
+```{r}
+saveRDS(mapdoncirc,"don/mapdoncirc.RDS")
+```
+
+
+## Création du fichier des communes
+
+```{r}
+mapcom<-mapdoncirc %>% group_by(com_code,com_name) %>%
+                       summarise()
+
+# test
+test<-mapcom %>% filter(substr(com_code,1,2)=="94")
+plot(test$geometry)
+
+# sauvegarde
+saveRDS(mapcom, "maps/mapcom.RDS")
+```
+
+# Création du fichier des départements
+```{r}
+table(nchar(mapcom$com_code))
+mapdep<-mapcom %>% mutate(dep)
+                   group_by(dep) %>%
+                       summarise()
+
+# test
+plot(mapdep$geometry)
+
+# sauvegarde
+saveRDS(mapcom, "maps/mapcom.RDS")
+```
+

@@ -39,11 +39,8 @@ vignettes/*.pdf
 # R Environment Variables
 .Renviron
 
-# pkgdown site
-docs/
+# temporary files (generally too big for github)
+/tmp/
 
-# translation temp files
-po/*~
 
-# RStudio Connect folder
-rsconnect/
+
