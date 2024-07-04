@@ -1,0 +1,124 @@
+circo;Code de la circonscription législative  (numéro de département suivi du numéro de circonscription);code électoral
+Nom de la circonscription;Nom de la circonscription législative  (nom du département suivi du numéro de circonscription);code électoral
+Inscrit_22;Nombre d’inscrits sur les listes électorales au 22 avril 2022;Ministère de l’intérieur, données en date du 11/04/2022.
+pop_légal_19;Population municipale légale des circonscriptions législatives au 01/01/2019;Insee, recensement de la population 2019 et recensements généraux des COM
+pop_légal_13;Population municipale légale des circonscriptions législatives au 01/01/2013;Insee, recensement de la population 2013 et recensements généraux des COM
+tvar_pop;Taux de variation annuelle de la population entre 2013 et 2019 (en %);Insee, recensements de la population 2013 et 2019 et recensements généraux des COM 
+pop_pole_aav;Part de la population habitant une commune pôle des aires d’attraction des villes (en %);Insee, recensement de la population 2018 et recensements généraux des COM (exploitation principale)
+pop_cour_aav;Part de la population habitant une commune dans une couronne des aires d’attraction des villes (en %);Insee, recensement de la population 2018 et recensements généraux des COM (exploitation principale)
+pop_horsaav;Part de la population habitant une commune hors aire d’attraction des villes (en %);Insee, recensement de la population 2018 et recensements généraux des COM (exploitation principale)
+pop_urb;Part de la population habitant une commune non rurale (en %);Insee, recensement de la population 2018 et recensements généraux des COM (exploitation principale)
+pop_rur_periu;Part de la population habitant une commune rurale périurbaine (en %);Insee, recensement de la population 2018 et recensements généraux des COM (exploitation principale)
+pop_rur_non_periu;Part de la population habitant une commune rurale non périurbaine (en %);Insee, recensement de la population 2018 et recensements généraux des COM (exploitation principale)
+age_moyen;âge moyen de la population;Insee, recensement de la population 2018 et recensements généraux des COM (exploitation principale)
+dec90;90e centile de la distribution par âge (10 % de la population a plus de) ;Insee, recensement de la population 2018 et recensements généraux des COM (exploitation principale)
+dec75;75e centile de la distribution par âge (25 % de la population a plus de) ;Insee, recensement de la population 2018 et recensements généraux des COM (exploitation principale)
+dec50;Médiane de la distribution par âge (50 % de la population a plus de);Insee, recensement de la population 2018 et recensements généraux des COM (exploitation principale)
+dec25;25e centile de la distribution par âge (25 % de la population a moins de) ;Insee, recensement de la population 2018 et recensements généraux des COM (exploitation principale)
+dec10;10e centile de la distribution par âge (10 % de la population a moins de);Insee, recensement de la population 2018 et recensements généraux des COM (exploitation principale)
+actemp;Part de la population active en emploi (en %);Insee, recensement de la population 2018 et recensements généraux des COM (exploitation principale)
+actcho;Part de la population active au chômage (en %);Insee, recensement de la population 2018 et recensements généraux des COM (exploitation principale)
+inactret;Part de la population inactive retraité (en %);Insee, recensement de la population 2018 et recensements généraux des COM (exploitation principale)
+inactetu;Part de la population inactive  élève, étudiant (en %);Insee, recensement de la population 2018 et recensements généraux des COM (exploitation principale)
+inactm14;Part de la population inactive moins de 14 ans (en %);Insee, recensement de la population 2018 et recensements généraux des COM (exploitation principale)
+inactaut;Part de la population autre inactive (en %);Insee, recensement de la population 2018 et recensements généraux des COM (exploitation principale)
+actemp_hom;Part des hommes actifs en emploi (en % du nombre d’hommes);Insee, recensement de la population 2018 et recensements généraux des COM (exploitation principale)
+actcho_hom;Part des hommes actifs au chômage (en % du nombre d’hommes);Insee, recensement de la population 2018 et recensements généraux des COM (exploitation principale)
+inactret_hom;Part des hommes inactifs retraités (en % du nombre d’hommes);Insee, recensement de la population 2018 et recensements généraux des COM (exploitation principale)
+inactetu_hom;Part des hommes inactifs  élèves, étudiants (en % du nombre d’hommes);Insee, recensement de la population 2018 et recensements généraux des COM (exploitation principale)
+inactm14_hom;Part des hommes de moins de 14 ans (en % du nombre d’hommes);Insee, recensement de la population 2018 et recensements généraux des COM (exploitation principale)
+inactaut_hom;Part des hommes autre inactif (en % du nombre d’hommes);Insee, recensement de la population 2018 et recensements généraux des COM (exploitation principale)
+actemp_fem;Part des femmes actives en emploi (en % du nombre de femmes);Insee, recensement de la population 2018 et recensements généraux des COM (exploitation principale)
+actcho_fem;Part des femmes actives au chômage (en % du nombre de femmes));Insee, recensement de la population 2018 et recensements généraux des COM (exploitation principale)
+inactret_fem;Part des femmes inactives retraités (en % de la population femme);Insee, recensement de la population 2018 et recensements généraux des COM (exploitation principale)
+inactetu_fem;Part des femmes inactives  élèves, étudiants (en % du nombre de femmes);Insee, recensement de la population 2018 et recensements généraux des COM (exploitation principale)
+inactm14_fem;Part des femmes de moins de 14 ans (en % du nombre de femmes);Insee, recensement de la population 2018 et recensements généraux des COM (exploitation principale)
+inactaut_fem;Part des femmes autre inactive (en % du nombre de femmes);Insee, recensement de la population 2018 et recensements généraux des COM (exploitation principale)
+actdip_PEU;Part de la population active pas ou peu diplômé (en %);Insee, recensement de la population 2018 et recensements généraux des COM (exploitation principale)
+actdip_CAP;Part de la population active détentrice au mieux d’un CAP, BEP ou équivalent (en %);Insee, recensement de la population 2018 et recensements généraux des COM (exploitation principale)
+actdip_BAC;Part de la population active détentrice au mieux d’un BAC (en %);Insee, recensement de la population 2018 et recensements généraux des COM (exploitation principale)
+actdip_BAC2;Part de la population active détentrice au mieux d’un diplôme de niveau BAC+2 (en %);Insee, recensement de la population 2018 et recensements généraux des COM (exploitation principale)
+actdip_BAC3;Part de la population active détentrice au mieux d’un diplôme de niveau BAC+3 +4 (en %);Insee, recensement de la population 2018 et recensements généraux des COM (exploitation principale)
+actdip_BAC5;Part de la population active détentrice au mieux d’un diplôme de niveau BAC+5 ou plus (en %);Insee, recensement de la population 2018 et recensements généraux des COM (exploitation principale)
+actdip_BAC3P;Part de la population active détentrice au mieux d’un diplôme de niveau BAC+3 ou plus  (en %);Insee, recensement de la population 2018 et recensements généraux des COM (exploitation principale)
+act_agr;Part de la population active agriculteur exploitant (en %);Insee, recensement de la population 2018 et recensements généraux des COM (exploitation complémentaire)
+act_art;Part de la population active artisan, commerçant, chef d’entreprise (en %);Insee, recensement de la population 2018 et recensements généraux des COM (exploitation complémentaire)
+act_cad;Part de la population active cadre, profession intellectuelle sup (en %);Insee, recensement de la population 2018 et recensements généraux des COM (exploitation complémentaire)
+act_int;Part de la population active profession intermédiaire  (en %);Insee, recensement de la population 2018 et recensements généraux des COM (exploitation complémentaire)
+act_emp;Part de la population active employé (en %);Insee, recensement de la population 2018 et recensements généraux des COM (exploitation complémentaire)
+act_ouv;Part de la population active ouvrier (en %);Insee, recensement de la population 2018 et recensements généraux des COM (exploitation complémentaire)
+act_cho;Part de la population active n’ayant jamais travaillé (en %);Insee, recensement de la population 2018 et recensements généraux des COM (exploitation complémentaire)
+log_res;Part des résidences principales (en % des logements);Insee, recensement de la population 2018 et recensements généraux des COM (exploitation principale)
+log_sec;Part des résidences secondaires ou occasionnelles (en % des logements);Insee, recensement de la population 2018 et recensements généraux des COM (exploitation principale)
+log_vac;Part des logements vacants (en % des logements);Insee, recensement de la population 2018 et recensements généraux des COM (exploitation principale)
+proprio;Part des logements occupés par leur propriétaire (en % des résidences principales);Insee, recensement de la population 2018 et recensements généraux des COM (exploitation principale)
+locatai;Part des logements occupés par des locataires (en % des résidences principales) ;Insee, recensement de la population 2018 et recensements généraux des COM (exploitation principale)
+gratuit;Part des logements occupés gratuitement (en % des résidences principales);Insee, recensement de la population 2018 et recensements généraux des COM (exploitation principale)
+maison;Part des maisons (en % des résidences principales);Insee, recensement de la population 2018 et recensements généraux des COM (exploitation principale)
+ach90;Part des logements construits avant 1991 (en % des résidences principales). Pour Mayotte, part des logements construits avant 1992. ;Insee, recensement de la population 2018 et recensements généraux des COM (exploitation principale)
+mfuel;Part des maisons chauffés au fuel (en % des résidences principales);Insee, recensement de la population 2018 et recensements généraux des COM (exploitation principale)
+men_seul;Part des ménages d'une personne seule sans famille (en %);Insee, recensement de la population 2018 et recensements généraux des COM (exploitation complémentaire)
+men_coupae;Part des ménages avec famille principale couple avec enfant(s) (en %);Insee, recensement de la population 2018 et recensements généraux des COM (exploitation complémentaire)
+men_coupse;Part des ménages avec famille principale couple sans enfant (en %);Insee, recensement de la population 2018 et recensements généraux des COM (exploitation complémentaire)
+men_monop;Part des ménages avec famille principale monoparentale (en %);Insee, recensement de la population 2018 et recensements généraux des COM (exploitation complémentaire)
+men_sfam;Part des ménages de plusieurs personnes sans famille (en %);Insee, recensement de la population 2018 et recensements généraux des COM (exploitation complémentaire)
+men_seul_com;Part des ménages composés d’une personne seule (en %);Insee, recensement de la population 2018 et recensements généraux des COM (exploitation complémentaire)
+men_coupse_com;Part des ménages composés d’un couple sans enfant dans le logement (en %);Insee, recensement de la population 2018 et recensements généraux des COM (exploitation complémentaire)
+men_coupae_com;Part des ménages composés d’un couple avec enfant(s) dans le logement (en %);Insee, recensement de la population 2018 et recensements généraux des COM (exploitation complémentaire)
+men_monop_com;Part des ménages composés d’une famille monoparentale (en %);Insee, recensement de la population 2018 et recensements généraux des COM (exploitation complémentaire)
+men_complexe_com;Part des ménages complexe (en %);Insee, recensement de la population 2018 et recensements généraux des COM (exploitation complémentaire)
+seul_hom1829;Part des hommes de 18 à 29 ans vivant seuls dans leur logement (en %);Insee, recensement de la population 2018 et recensements généraux des COM (exploitation principale)
+seul_hom3059;Part des hommes de 30 à 59 ans vivant seuls dans leur logement (en %);Insee, recensement de la population 2018 et recensements généraux des COM (exploitation principale)
+seul_hom6074;Part des hommes de 60 à 74 ans vivant seuls dans leur logement (en %);Insee, recensement de la population 2018 et recensements généraux des COM (exploitation principale)
+seul_hom7584;Part des hommes de 75 à 84 ans vivant seuls dans leur logement (en %);Insee, recensement de la population 2018 et recensements généraux des COM (exploitation principale)
+seul_hom85;Part des hommes de 85 ans ou plus vivant seuls dans leur logement (en %);Insee, recensement de la population 2018 et recensements généraux des COM (exploitation principale)
+seul_fem1829;Part des femmes de 18 à 29 ans vivant seules dans leur logement (en %);Insee, recensement de la population 2018 et recensements généraux des COM (exploitation principale)
+seul_fem3059;Part des femmes de 30 à 59 ans vivant seules dans leur logement (en %);Insee, recensement de la population 2018 et recensements généraux des COM (exploitation principale)
+seul_fem6074;Part des femmes de 60 à 74 ans vivant seules dans leur logement (en %);Insee, recensement de la population 2018 et recensements généraux des COM (exploitation principale)
+seul_fem7584;Part des femmes de 75 à 84 ans vivant seules dans leur logement (en %);Insee, recensement de la population 2018 et recensements généraux des COM (exploitation principale)
+seul_fem85;Part des femmes de 85 ans ou plus vivant seules dans leur logement (en %);Insee, recensement de la population 2018 et recensements généraux des COM (exploitation principale)
+iranr_log;Part des personnes résidant dans le même logement un an auparavant (en %);Insee, recensement de la population 2018 et recensements généraux des COM (exploitation principale)
+iranr_com;Part des personnes résidant dans un autre logement de la même commune un an auparavant (en %);Insee, recensement de la population 2018 et recensements généraux des COM (exploitation principale)
+iranr_dep;Part des personnes résidant dans une autre commune du département un an auparavant (en %);Insee, recensement de la population 2018 et recensements généraux des COM (exploitation principale)
+iranr_fra;Part des personnes résidant hors département en France un an auparavant (en %);Insee, recensement de la population 2018 et recensements généraux des COM (exploitation principale)
+iranr_etr;Part des personnes résidant à l’étranger un an auparavant (en %);Insee, recensement de la population 2018 et recensements généraux des COM (exploitation principale)
+mobresid;Part de la population n’habitant pas une commune de la circonscription un an auparavant (en %);Insee, recensement de la population 2018 et recensements généraux des COM (exploitation principale)
+ilt_com;Part des actifs en emploi travaillant dans la commune de résidence actuelle (en %);Insee, recensement de la population 2018 et recensements généraux des COM (exploitation principale)
+ilt_dep;Part des actifs en emploi travaillant dans une autre commune du département  (en %);Insee, recensement de la population 2018 et recensements généraux des COM (exploitation principale)
+ilt_fra;Part des actifs en emploi travaillant hors département en France (en %);Insee, recensement de la population 2018 et recensements généraux des COM (exploitation principale)
+ilt_etr;Part des actifs en emploi travaillant  l’étranger (en %);Insee, recensement de la population 2018 et recensements généraux des COM (exploitation principale)
+mobtrav;Part des actifs en emploi ne travaillant pas dans une commune de la circonscription (en %);Insee, recensement de la population 2018 et recensements généraux des COM (exploitation principale)
+modtrans_aucun;Part des actifs en emploi effectuant aucun déplacement pour aller travailler  (en %);Insee, recensement de la population 2018 et recensements généraux des COM (exploitation principale)
+modtrans_pied;Part des actifs en emploi se déplaçant principalement à pied ou patinette pour aller travailler  (en %);Insee, recensement de la population 2018 et recensements généraux des COM (exploitation principale)
+modtrans_velo;Part des actifs en emploi se déplaçant principalement en vélo (y compris électrique) pour aller travailler  (en %);Insee, recensement de la population 2018 et recensements généraux des COM (exploitation principale)
+modtrans_moto;Part des actifs en emploi se déplaçant principalement en deux-roues motorisé pour aller travailler  (en %);Insee, recensement de la population 2018 et recensements généraux des COM (exploitation principale)
+modtrans_voit;Part des actifs en emploi se déplaçant principalement en voiture, camion ou fourgonnette pour aller travailler  (en %);Insee, recensement de la population 2018 et recensements généraux des COM (exploitation principale)
+modtrans_commun;Part des actifs en emploi se déplaçant principalement en transport en commun pour aller travailler  (en %) ;Insee, recensement de la population 2018 et recensements généraux des COM (exploitation principale)
+tx_pauvrete60_diff;Taux de pauvreté au seuil de 60 % du niveau de vie médian (en %);Insee-DGFiP-Cnaf-Cnav-Ccmsa, Fichier localisé social et fiscal (Filosofi) 2019
+nivvie_median_diff;Niveau de vie médian (en %);Insee-DGFiP-Cnaf-Cnav-Ccmsa, Fichier localisé social et fiscal (Filosofi) 2019
+part_pauvres_diff;Part de la population vivant dans un ménage pauvre (ménage dont le niveau de vie est en dessous de 60 % du niveau médian)  (en %);Insee-DGFiP-Cnaf-Cnav-Ccmsa, Fichier localisé social et fiscal (Filosofi) 2019
+part_modestes_diff;Part de la population vivant dans un ménage modeste (ménage dont le niveau de vie est entre 60 % et 90 % du niveau médian)  (en %);Insee-DGFiP-Cnaf-Cnav-Ccmsa, Fichier localisé social et fiscal (Filosofi) 2019
+part_medians_diff;Part de la population vivant dans un ménage médian (ménage dont le niveau de vie est entre 90 % et 120 % du niveau médian)  (en %);Insee-DGFiP-Cnaf-Cnav-Ccmsa, Fichier localisé social et fiscal (Filosofi) 2019
+part_plutot_aises_diff;Part de la population vivant dans un ménage plutôt aisé (ménage dont le niveau de vie est entre 120 % et 180 % du niveau médian)  (en %);Insee-DGFiP-Cnaf-Cnav-Ccmsa, Fichier localisé social et fiscal (Filosofi) 2019
+part_aises_diff;Part de la population vivant dans un ménage aisé (ménage dont le niveau de vie est au dessus de 180 % du niveau médian)  (en %);Insee-DGFiP-Cnaf-Cnav-Ccmsa, Fichier localisé social et fiscal (Filosofi) 2019
+D1_diff;1er décile de niveau de vie (D1);Insee-DGFiP-Cnaf-Cnav-Ccmsa, Fichier localisé social et fiscal (Filosofi) 2019
+D9_diff;9éme décile de niveau de vie (D9);Insee-DGFiP-Cnaf-Cnav-Ccmsa, Fichier localisé social et fiscal (Filosofi) 2019
+rpt_D9_D1_diff;Rapport interdécile D9/D1;Insee-DGFiP-Cnaf-Cnav-Ccmsa, Fichier localisé social et fiscal (Filosofi) 2019
+tx_pauvrete60_diff_trageRF1;Taux de pauvreté au seuil de 60 % du niveau de vie médian référent fiscal de moins de trente ans (en %);Insee-DGFiP-Cnaf-Cnav-Ccmsa, Fichier localisé social et fiscal (Filosofi) 2019
+tx_pauvrete60_diff_trageRF2;Taux de pauvreté au seuil de 60 % du niveau de vie médian référent fiscal âgé de 30 à 39 ans (en %);Insee-DGFiP-Cnaf-Cnav-Ccmsa, Fichier localisé social et fiscal (Filosofi) 2019
+tx_pauvrete60_diff_trageRF3;Taux de pauvreté au seuil de 60 % du niveau de vie médian référent fiscal âgé de 40 à 49 ans (en %);Insee-DGFiP-Cnaf-Cnav-Ccmsa, Fichier localisé social et fiscal (Filosofi) 2019
+tx_pauvrete60_diff_trageRF4;Taux de pauvreté au seuil de 60 % du niveau de vie médian référent fiscal âgé de 50 à 59 ans (en %);Insee-DGFiP-Cnaf-Cnav-Ccmsa, Fichier localisé social et fiscal (Filosofi) 2019
+tx_pauvrete60_diff_trageRF5;Taux de pauvreté au seuil de 60 % du niveau de vie médian référent fiscal âgé de 60 à 74 ans (en %);Insee-DGFiP-Cnaf-Cnav-Ccmsa, Fichier localisé social et fiscal (Filosofi) 2019
+tx_pauvrete60_diff_trageRF6;Taux de pauvreté au seuil de 60 % du niveau de vie médian référent fiscal âgé de 75 ans ou plus (en %);Insee-DGFiP-Cnaf-Cnav-Ccmsa, Fichier localisé social et fiscal (Filosofi) 2019
+PACT;Part dans le revenu disponible des revenus d’activité (y compris allocations chômages);Insee-DGFiP-Cnaf-Cnav-Ccmsa, Fichier localisé social et fiscal (Filosofi) 2019
+PPEN;Part dans le revenu disponible des pensions, retraites et rentes;Insee-DGFiP-Cnaf-Cnav-Ccmsa, Fichier localisé social et fiscal (Filosofi) 2019
+PPAT;Part dans le revenu disponible du patrimoine et autres revenus;Insee-DGFiP-Cnaf-Cnav-Ccmsa, Fichier localisé social et fiscal (Filosofi) 2019
+PPSOC;Part dans le revenu disponible de l’ensemble des prestations sociales;Insee-DGFiP-Cnaf-Cnav-Ccmsa, Fichier localisé social et fiscal (Filosofi) 2019
+PIMPOT;Part dans le revenu disponible des impots;Insee-DGFiP-Cnaf-Cnav-Ccmsa, Fichier localisé social et fiscal (Filosofi) 2019
+acc_ecole;Part de la population ayant accès à une école sur sa commune de résidence;Insee, recensement de la population 2018, BPE 2020
+acc_college;Part de la population ayant accès à un collège sur sa commune de résidence;Insee, recensement de la population 2018, BPE 2020
+acc_lycee;Part de la population ayant accès à un lycée sur sa commune de résidenceP;Insee, recensement de la population 2018, BPE 2020
+acc_medecin;Part de la population ayant accès à un médecin sur sa commune de résidence ;Insee, recensement de la population 2018, BPE 2020
+acc_dentiste;Part de la population ayant accès à un dentiste sur sa commune de résidence ;Insee, recensement de la population 2018, BPE 2020
+acc_pharmacie;Part de la population ayant accès à une pharmacie sur sa commune de résidence;Insee, recensement de la population 2018, BPE 2020
+part_eloig;Part de la population éloignée du panier courant;Insee, recensement de la population 2018, BPE 2018, distancier Métric 

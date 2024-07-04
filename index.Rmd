@@ -1,0 +1,175 @@
+---
+title: "TYPOLOGIE DES RESULTATS DU 1er TOUR DES ELECTIONS LEGISLATIVES DE 2024"
+output: 
+  flexdashboard::flex_dashboard:
+    storyboard: true
+    social: menu
+    source: embed
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(sf)
+library(leaflet)
+library(htmltools)
+library(htmlwidgets)
+library(mapsf)
+library(knitr)
+mapgeom<-readRDS("res/mapgeom.RDS")
+mappop<-readRDS("res/mappop.RDS")
+```
+
+### CARTE INTERACTIVE : vous pouvez zoomer sur votre circonscription puis cliquer pour obtenir les résultats du 1er tour.
+
+```{r}
+map<-mapgeom
+  factpal <- colorFactor(rev(c("darkblue","lightblue","lightyellow","orange","red")), map$typo)
+    
+
+ 
+    
+
+    # Préparation des popups
+    mypopups <- lapply(seq(nrow(map)), function(i) {
+      paste0(  paste("Circonscription   : ",map$libelle[i]), '<br>',
+               paste("Type           : ",map$type[i]), '<br>',
+               paste("Inscrits : " ,map$inscrits[i]), '<br>',                      
+               paste("% d'abstention : " ,map$abstention[i]), '<br>', 
+               paste("% blancs : " ,map$blancs[i]), '<br>', 
+               paste("% nuls : " ,map$nuls[i]), '<br>', 
+               paste("% Extrême Doite : " ,map$extr_droite[i]), '<br>', 
+               paste("% Droite : " ,map$droite[i]), '<br>', 
+               paste("% Centre  : " ,map$centre[i]), '<br>', 
+               paste("% Gauche : " ,map$gauche[i]), '<br>'
+
+               
+      ) 
+    })
+    mypopups<-lapply(mypopups, htmltools::HTML)
+    
+    
+    
+    
+    # Réalisation de la carte
+    maphtml <- leaflet() %>% 
+          addTiles() %>%
+ #     addProviderTiles('Esri.WorldTopoMap') %>%
+     setView(lat = 47.08, lng=2.39,zoom = 6) %>% 
+      addPolygons(data = map,
+                  fillColor = ~factpal(type),
+                  fillOpacity = 0.5,
+                  color = "white",
+                  label = ~type,
+                  popup = mypopups,
+                  weight = 1,
+                  highlightOptions = highlightOptions(weight = 3, color = 'green')) 
+
+  
+    maphtml
+```
+
+***
+**TYPOLOGIE DES CIRCONSCRIPTIONS**
+
+- Le **type A (en rouge)** correspond aux **bastions de gauche à forte abstention**, généralement situés dans les quartiers de classes moyenne et de classes populaire des métropoles. 
+
+- Le **type B (en orange)** correspond aux **bastions du centre, concurrencés par la gauche** mais sans risque majeur de basculement au profit de l'extrême droite. 
+
+- Le **type D (en bleu clair)** correspond aux **zones résiduelles de la droite classique (LR)**, de plus en plus menacée par la poussée de l'extrême droite et souvent tentée de s'allier avec elle ou, en tous les cas d'adopter la posture du ni-ni.
+
+- Le **type E (en bleu foncé)** correspond aux **bastions d'extrême droite à forte abstention**. Il s'agit de circonscription qui soit on élu un membre du RN au premier tour, soit ont une probabilité très forte de le faire au second. 
+
+- Le **type C (en jaune clair)** correspond à la **zone d'incertitude maximale** où centre, gauche et extrême droite affichent des scores le plus souvent comparables et où une alliance entre centre et gauche serait le plus souvent en mesurer de battre l'extrême droite. C'est bien dans ces circonscriptions que devrait se jouer le sort du second tour des législatives et ce sont également les plus nombreuses.
+
+### CARTE GEOMETRIQUE : cette carte représente classiquement les circonscriptions en fonction de leur superficie
+
+```{r}
+
+                          
+                        
+mypal <-rev(c("darkblue","lightblue","lightyellow","orange","red"))
+
+
+mf_map(mapgeom,
+       type="typo",
+       var ="type", 
+       lwd=0.1, 
+       pal=mypal,
+       leg_title = "Type de circonscription")
+mf_layout(title = "Taille des circonscription proportionelle à leur superficie",
+          credits = "(c) Grasland C., Université Paris Cité",
+          frame = T,scale = F, arrow=F)
+
+
+
+
+
+
+
+
+```
+
+***
+
+Cette carte classique facilite le repérage des circonscriptions. Mais elle a l'inconvénient d'accorder une grande importance visuelles aux vastes circonscriptions des zones à faible densité. Et inversement de rendre presque invisible les circonscriptions urbaines de petite taille.
+
+Au total, elle semble suggérer une domination des circonscriptions favorables à l'extrême droite (bleu foncé) ainsi qu'aus zones de force résiduelles de la droite classique (bleu clair). 
+
+
+### CARTE CITOYENNE : cette carte déforme les circonscriptions de façon à ce que leur superficie soit proportionnelle au nombre d'électeurs inscrits
+
+```{r}
+
+mypal <-rev(c("darkblue","lightblue","lightyellow","orange","red"))
+
+
+mf_map(mappop, 
+       type="typo",
+       var ="type", 
+       lwd=0.1, 
+       pal=mypal,
+       leg_title = "Type de circonscription")
+mf_layout(title = "Taille des circonscripton proportionelle à leur nombre d'inscrits",
+          credits = "(c) Grasland C., Université Paris Cité",
+          frame = T,scale = F, arrow=F)
+
+
+
+
+
+
+```
+
+***
+
+Au contraire de la carte précédente, cette carte met en valeur le poids des villes divisées en plusieurs circonscriptions électorales, avec en premier lieu l'agglomération parisienne qui regroupe environ 1/5e de la population. 
+
+On voit alors qu'il existe un équilibre entre les bastions de gauche et du centre (en rouge et orange) et ceux de la droite et l'extrême droite (en bleu clair et bleu foncé). Mais le plus important est de repérer les zones d'incertitude (en jaune clair) où va se jouer le résultat de l'élection. 
+
+
+### METHODE DE CLASSIFICATION : Comment ont été établis les cinq types de circonscriptions présentés dans les cartes précédentes ?
+
+
+La plupart des cartes électorales qui ont été publiées ces derniers jours se sont focalisées sur les  suffrages exprimés et leurs hypothétiques reports de voix. Les abstentionnistes sont analysés séparément tandis que les électeurs ayant choisi un vote blanc ou nul ont été le plus souvent ignorés. Or, la menace qui pèse sur la démocratie concerne l'ensemble de la population française en âge de voter, ainsi d'ailleurs que les étrangers qui ne sont pas en situation de le faire. Il est donc scientifiquement nécessaire et politiquement indispensable d'analyser simultanément  l'attitude de l'ensemble des inscrits sur les listes électorales si l'on veut proposer une typologie des enjeux du second tour.
+
+Nous avons donc construit un tableau dont les lignes correspondent aux 535 circonscriptions de France Métropolitaire - hors Corse, celle-ci étant trop spécifique - puis regrouper l'ensemble des inscrits en 7 catégories correspondant aux absentions, aux votes blancs et nuls et aux suffrages exprimés regroupés en quatre blocs correspondant à l'extrême droite, la droite, le centre et la gauche. Tout citoyen disposant d'une carte électorale est donc présent dans ce tableau qui comporte 535 lignes et 7 colonnes.On peut alors appliquer à ce tableau une méthode de classification objective (Analyse des correspondance puis classification ascendante hiérarhique en métrique du chi-2) qui permet de dégager clairement cinq types et d'en présenter les profils en pourcentage des inscrits.
+
+```{r}
+#Profil moyen des 5 types de circonscription
+
+mynames<-c("Abstention",       "Nuls",       "Blancs",      "Ext. Droite",       "Droite",       "Centre",      "Gauche", "Total")
+A <- c(   33.5, 0.4, 1.0, 13.7,  4.0, 12.1, 35.1,100)
+B <- c(27.2, 0.57,  1.0, 16.1, 6.3, 24.6, 24.3,100)
+C <-  c(30.6, 0.6, 1.4, 24.93, 2.3, 21.1, 19.0,100)
+D <-  c(31.3, 0.5, 1.2, 25.1, 22.0, 3.3, 16.6,100)
+E <- c(32.4, 0.6, 1.3, 30.1, 5.2, 12.5, 17.9,100) 
+
+mat<-rbind(A,B,C,D,E)
+colnames(mat)<-mynames
+kable(mat, caption = "Profil moyen des classes (en % des inscrits)", digits=1)
+```
+
+- **N.B.** Nous avons retiré la Corse ainsi que les départements et régions d'Outre-Mer car les candidats aux élections étaient souvent issus de mouvements que l'on ne peut pas classer dans les catégories utilisées ici (mouvements régionalistes et autonomistes). Dans le reste de la France métropolitaine, les candidats de ce type ont été regroupés arbitrairement avec le bloc de Droite. 
+
+
+
